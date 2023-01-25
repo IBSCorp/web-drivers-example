@@ -17,19 +17,20 @@
                         <property name="driverType">
                             <value type="ru.ibsqa.qualit.selenium.driver.WebSupportedDriver">CHROME</value>
                         </property>
-                        <property name="maximizeWindow" value="false"/>
+                        <property name="maximizeWindow" value="true"/>
                     </bean>
                 </constructor-arg>
             </bean>
         </property>
     </bean>
 
-    <!-- Создание конфигурации для ее последующегно использования в драйверах -->
+    <!-- Создание конфигурации для ее последующего использования в драйверах -->
     <bean id="firefoxDriverConfiguration"
           class="ru.ibsqa.qualit.selenium.driver.configuration.DefaultDriverConfiguration">
         <property name="driverType">
             <value type="ru.ibsqa.qualit.selenium.driver.WebSupportedDriver">FIREFOX</value>
         </property>
+        <property name="maximizeWindow" value="true"/>
     </bean>
 
     <!-- В данном примере драйвер использует ранее созданную конфигурацию по ее id -->
