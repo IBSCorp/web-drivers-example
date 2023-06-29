@@ -8,14 +8,14 @@
        default-lazy-init="true">
 
     <!-- В данном примере конфигурация создается непосредственно для данного драйвера -->
-    <bean id="chromeDriver" class="ru.ibsqa.qualit.selenium.driver.WebDriverFacade" destroy-method="quit">
+    <bean id="chromeDriver" class="ru.ibsqa.chameleon.selenium.driver.WebDriverFacade" destroy-method="quit">
         <property name="defaultDriver" value="true"/>
         <property name="driverFactory">
-            <bean class="ru.ibsqa.qualit.selenium.driver.WebDriverFactory">
+            <bean class="ru.ibsqa.chameleon.selenium.driver.WebDriverFactory">
                 <constructor-arg>
-                    <bean class="ru.ibsqa.qualit.selenium.driver.configuration.DefaultDriverConfiguration">
+                    <bean class="ru.ibsqa.chameleon.selenium.driver.configuration.DefaultDriverConfiguration">
                         <property name="driverType">
-                            <value type="ru.ibsqa.qualit.selenium.driver.WebSupportedDriver">CHROME</value>
+                            <value type="ru.ibsqa.chameleon.selenium.driver.WebSupportedDriver">CHROME</value>
                         </property>
                         <property name="maximizeWindow" value="true"/>
                     </bean>
@@ -26,17 +26,17 @@
 
     <!-- Создание конфигурации для ее последующего использования в драйверах -->
     <bean id="firefoxDriverConfiguration"
-          class="ru.ibsqa.qualit.selenium.driver.configuration.DefaultDriverConfiguration">
+          class="ru.ibsqa.chameleon.selenium.driver.configuration.DefaultDriverConfiguration">
         <property name="driverType">
-            <value type="ru.ibsqa.qualit.selenium.driver.WebSupportedDriver">FIREFOX</value>
+            <value type="ru.ibsqa.chameleon.selenium.driver.WebSupportedDriver">FIREFOX</value>
         </property>
         <property name="maximizeWindow" value="true"/>
     </bean>
 
     <!-- В данном примере драйвер использует ранее созданную конфигурацию по ее id -->
-    <bean id="firefoxDriver" class="ru.ibsqa.qualit.selenium.driver.WebDriverFacade" destroy-method="quit">
+    <bean id="firefoxDriver" class="ru.ibsqa.chameleon.selenium.driver.WebDriverFacade" destroy-method="quit">
         <property name="driverFactory">
-            <bean class="ru.ibsqa.qualit.selenium.driver.WebDriverFactory">
+            <bean class="ru.ibsqa.chameleon.selenium.driver.WebDriverFactory">
                 <constructor-arg ref="firefoxDriverConfiguration"/>
             </bean>
         </property>
